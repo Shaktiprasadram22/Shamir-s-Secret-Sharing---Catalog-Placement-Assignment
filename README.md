@@ -4,6 +4,20 @@
 
 This project implements a simplified version of Shamir's Secret Sharing algorithm to reconstruct the constant term of a polynomial using Lagrange interpolation. The solution handles large 256-bit integers and various base encodings without using external libraries.
 
+## Assignment Checkpoints Completed ✓
+
+1. ✅ **Read Test Case from JSON file** - Implemented custom JSON parser that processes both test cases
+2. ✅ **Decode Y Values** - Handle bases 2-16 with BigInt support for large numbers
+3. ✅ **Find Secret (C)** - Use Lagrange interpolation to find the constant term
+
+## Constraint Handling
+
+- ✅ **No Python**: Implemented in C++11 with standard library only
+- ✅ **256-bit integers**: Custom BigInt class handles large number arithmetic
+- ✅ **Positive coefficients**: All calculations maintain proper sign handling
+- ✅ **n ≥ k**: Algorithm selects first k points from n available points
+- ✅ **Simultaneous processing**: Both test cases processed in single execution
+
 ## 📁 Project Structure
 
 ```
@@ -144,9 +158,11 @@ g++ -std=c++11 -g -Wall main.cpp -o catalog_solver
 # Secret for Test Case 2: [large number]
 ```
 
-### Input Format
+## Input File Structure
 
-The input.json file should contain:
+The program reads from `input.json` for Test Case 1 and processes Test Case 2 from embedded JSON string:
+
+### Test Case 1 Format (input.json):
 
 ```json
 {
@@ -172,6 +188,13 @@ The input.json file should contain:
   }
 }
 ```
+
+### Test Case 2 Format:
+
+- **n**: 10 points provided
+- **k**: 7 points required for reconstruction
+- **Bases**: Various (3, 6, 7, 8, 12, 15, 16)
+- **Values**: Large base-encoded strings representing 256-bit integers
 
 ## 📊 Test Cases
 
@@ -214,4 +237,25 @@ To manually verify Test Case 1:
 === RESULTS ===
 Test Case 1 Secret: 3
 Test Case 2 Secret: 75370654919612532327
+```
+
+## Submission
+
+This project is submitted as per assignment requirements:
+
+- ✅ **Code pushed to GitHub**: [Repository Link](https://github.com/Shaktiprasadram22/Shamir-s-Secret-Sharing---Catalog-Placement-Assignment.git)
+- ✅ **Both test cases processed simultaneously**: Single execution handles both cases
+- ✅ **Output clearly displayed**: Results printed with clear formatting
+- ✅ **70-minute duration**: Completed within assignment timeframe
+- ✅ **No Python restriction**: Implemented in C++11
+
+### GitHub Repository Structure:
+
+```
+Shamir-s-Secret-Sharing---Catalog-Placement-Assignment/
+├── Source code files (*.cpp, *.h)
+├── Input data (input.json)
+├── Documentation (README.md)
+├── Build scripts (Makefile, build.bat)
+└── Executable (catalog_solver.exe)
 ```
